@@ -7,4 +7,11 @@ Support Vector Machine (SVM) idea is to find the proper hyperplane to seprate th
 Two methods use the metric space and distance function to learn the classification task and because of this, proper representation of the data in a low-dimension metric space is a must for a classifier. Dimensionallity reduction is the process of mapping a high dimensional data into a new space whose dimensionality is much smaller. PCA is one of the classic method for dimension reduction it computes new variable called *principal components* which are obtainedas linear combination of the original variable.  Component in PCA are orthogonal and in other word they areindependent and also we want to have the largest possible variance which can be achieved by choosing the eigen vector whith largest eigen value. NCA goal is to learn a transformation **A** where the KNN algorithm works well on the projected space **AX** where **X** is the data set. To achieve this NCA simply start with an arbitrary matrix for tranformation and a differentiable cost function where maximized with respect to the gradient. In this **MNIST Playground** I used MNIST data set as a benchmark to compare the NCA and PCA by the results of KNN and SVM on the transformed data. 
 
 ## 2D, 3D visualization
-![alt text](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/NCA_2d.png)
+NCA 2D            |  NCA 3D
+:-------------------------:|:-------------------------:
+![](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/NCA_2d.png)  |  ![](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/NCA_3D.png)
+
+
+PCA 2D            |  PCA 3D
+:-------------------------:|:-------------------------:
+![](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/PCA_2d_legend.png)  |  ![](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/PCA_3d.png)
