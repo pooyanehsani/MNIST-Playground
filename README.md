@@ -15,3 +15,16 @@ NCA 2D            |  NCA 3D
 PCA 2D            |  PCA 3D
 :-------------------------:|:-------------------------:
 ![](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/PCA_2d_legend.png)  |  ![](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/PCA_3d.png)
+
+As the above mentioned figures shows NCA make dense cluster compare to PCA and it is useful for KNN to make a correct prediction by looking to the neighbour of a new instance.
+
+## Classification results
+
+For the classification both NCA and PCA transform data to a 50 dimensional space and Linear-SVM and KNN trained on both to compare the results.
+KNN         
+:-------------------------:
+![](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/KNN.png)
+
+SVM
+:-------------------------:
+![](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/SVM.png)
