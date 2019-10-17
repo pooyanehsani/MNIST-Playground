@@ -21,6 +21,7 @@ As the above mentioned figures shows NCA make dense cluster compare to PCA and i
 ## Classification results
 
 For the classification both NCA and PCA transform data to a 50 dimensional space and Linear-SVM and KNN trained on both to compare the results.
+
 KNN         
 :-------------------------:
 ![](https://raw.githubusercontent.com/pooyanehsani/MNIST-Playground/master/images/KNN.png)
