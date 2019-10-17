@@ -8,8 +8,11 @@ import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import timeit
-
+#Number of feature in the new space
+rid_dim = 50
 def choose_k(x,y,xt,yt,min,max):
+	#Find the proper K for KNN algorithm between the range [min, max]
+	#x,y are train data and label and xt,yt are the test data
 	index = 0
 	acc_max = 0
 	for i in range(min,max):
@@ -22,6 +25,7 @@ def choose_k(x,y,xt,yt,min,max):
 	return index, acc_max
 
 def twod_plot(x, y):
+	#plot 2D figure
 	unique = list(set(y))
 	colors = [plt.cm.jet(float(i) / max(unique)) for i in unique]
 	for i, u in enumerate(unique):
@@ -33,6 +37,7 @@ def twod_plot(x, y):
 	plt.show()
 
 def threeD_plot(x,y):
+	#Plot 3D figure
 	fig = plt.figure()
 	ax = fig.add_subplot(111, projection='3d')
 	ax.scatter(x[:, 0], x[:, 1], x[:, 2], c=y)
@@ -42,6 +47,7 @@ def plot_confusion_matrix(y_true, y_pred,
                           normalize=False,
                           title=None,
                           cmap=plt.cm.Blues):
+	#Plot the Confusion matrix
     if not title:
         if normalize:
             title = 'Normalized confusion matrix'
@@ -109,9 +115,11 @@ plot_confusion_matrix(y_test, pred,
                       title='svm Confusion matrix')
 plt.show()
 print("svm report", metrics.classification_report(y_test,pred))
-#results for 50 pca
+
+
+#Dimension reduction using PCA
 start = timeit.default_timer()
-pca = PCA(50)
+pca = PCA(rid_dim)
 (x_train_trans, x_test_trans) = pca.fit_transform(x_train,x_test)
 stop = timeit.default_timer()
 print('Time: ', stop - start)
@@ -126,6 +134,7 @@ plot_confusion_matrix(y_test, pred,
                      title='Confusion matrix PCA data')
 plt.show()
 print("pca + knn report", metrics.classification_report(y_test,pred))
+
 #SVM
 s = SVM()
 s.train(x_train_trans,y_train,x_test_trans,y_test)
@@ -136,8 +145,10 @@ plot_confusion_matrix(y_test, pred,
 plt.show()
 print("pca + svm report", metrics.classification_report(y_test,pred))
 
-#results for 50 NCA
-nca = NCA(50)
+'''
+dimension reduction Using NCA
+'''
+nca = NCA(rid_dim)
 nca.fit(x_train[:10000],y_train[:10000])
 x_train_trans = nca.transform(x_train)
 x_test_trans = nca.transform(x_test)
